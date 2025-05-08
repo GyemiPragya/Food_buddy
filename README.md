@@ -47,9 +47,9 @@ python algorithms/clarke_wright.py
 ## Team
 
 - Moksh Dhandariya - UI/UX, Features, Gamification
-- Pragya Thapliyal - UI/UX, Key Features, Backend, Testing, Documentation
-- Ashu Chauhan - Database, Backend
-- Ashutosh - Testing, Documentation
+- Pragya Thapliyal - UI/UX, Key Features
+- Ashutosh - Database, Backend
+- Ashu Chauhan - Testing, Documentation
 
 ---
 
