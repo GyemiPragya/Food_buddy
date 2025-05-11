@@ -34,6 +34,27 @@ python algorithms/clarke_wright.py
 *(Edit the sample data in the script to test with different depot/recipient locations and demands. The script will output optimized routes that respect vehicle capacity.)*
 
 ---
+### Priority Queue (Food Expiration Management)
+
+Ensures food items closest to expiration are delivered first, reducing waste.
+
+- **How it works:**  
+  Uses a priority queue (min-heap) where each food item’s priority is its expiration date. The soonest-to-expire food is always delivered first.
+
+- **How to run/test:**  
+python algorithms/priority_queue.py
+
+---
+### R-Tree Spatial Indexing (Geographic Queries)
+
+Allows fast queries for nearest donors or recipients based on location.
+
+- **How it works:**  
+  Uses an R-Tree (or KDTree fallback) to index locations and quickly find the nearest ones.
+
+- **How to run/test:**  
+python algorithms/r_tree.py
+---
 
 ## How to Contribute
 
