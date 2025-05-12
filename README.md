@@ -56,6 +56,79 @@ Allows fast queries for nearest donors or recipients based on location.
 Start the Flask backend.  
 Send a POST request to `/nearest` 
 ---
+## API Endpoints
+
+The following API endpoints are available:
+
+-   **`/match` (POST):**
+    -   Description: Finds the optimal matches between donors and recipients based on a cost matrix.
+    -   Input (JSON):
+        ```
+        {
+          "cost_matrix": [[1],[2],[2][2]
+          ]
+        }
+        ```
+    -   Output (JSON):
+        ```
+        {
+          "matches": [[1],[1],[2][2]],
+          "total_cost": 5.0
+        }
+        ```
+
+-   **`/route` (POST):**
+    -   Description: Optimizes delivery routes for volunteers using the Clarke-Wright Savings Algorithm.
+    -   Input (JSON):
+        ```
+        {
+          "locations": [,[2],,[1],[1]],
+          "demands":[2][2][1],
+          "capacity": 5
+        }
+        ```
+    -   Output (JSON):
+        ```
+        {
+          "routes": [[1][2],]
+        }
+        ```
+
+-   **`/next_expiring` (POST):**
+    -   Description: Returns the next food item that should be delivered based on expiration date.
+    -   Input (JSON):
+        ```
+        {
+          "food_items": [
+            { "name": "Bread", "expiration_date": "2025-05-12" },
+            { "name": "Milk", "expiration_date": "2025-05-10" }
+          ]
+        }
+        ```
+    -   Output (JSON):
+        ```
+        {
+          "next_to_deliver": "FoodItem('Milk', datetime.date(2025, 5, 10))"
+        }
+        ```
+
+-   **`/nearest` (POST):**
+    -   Description: Finds the nearest location to a given query point using R-Tree spatial indexing.
+    -   Input (JSON):
+        ```
+        {
+        "locations": [
+            [28.7041, 77.1025],
+            [19.0760, 72.8777],
+            [13.0827, 80.2707],
+            [22.5726, 88.3639]
+        ],
+        "query_point": [12.9716, 77.5946]
+        }
+    -    Output (JSON):
+        {
+        "nearest_index": 2
+        }
 
 ## How to Contribute
 
