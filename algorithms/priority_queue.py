@@ -22,7 +22,7 @@ class FoodPriorityQueue:
             return None
     def show_queue(self):
         return sorted(self.heap)
-
+'''
 # Example usage
 if __name__ == "__main__":
     pq = FoodPriorityQueue()
@@ -34,3 +34,4 @@ if __name__ == "__main__":
     print("Current queue (soonest expiring first):", pq.show_queue())
     print("Next food to deliver:", pq.get_next_to_deliver())
     print("Queue after delivery:", pq.show_queue())
+'''

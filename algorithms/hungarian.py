@@ -23,7 +23,7 @@ def optimal_matching(cost_matrix):
     total_cost = cost_matrix[row_indices, col_indices].sum()
     
     return matches, total_cost
-
+"""
 # Example usage
 if __name__ == "__main__":
     # Example cost matrix: rows = donors, columns = recipients
@@ -41,3 +41,4 @@ if __name__ == "__main__":
         print(f"Donor {donor_id} → Recipient {recipient_id} (Cost: {cost_matrix[donor_id, recipient_id]})")
     
     print(f"Total cost: {total_cost}")
+"""

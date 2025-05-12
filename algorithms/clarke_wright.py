@@ -34,7 +34,7 @@ def clarke_wright_savings_with_capacity(depot, recipients, demands, vehicle_capa
                 routes.append(merged)
                 # No need to update route_demands, as we recalculate on the fly
     return routes
-
+'''
 # Example usage:
 if __name__ == "__main__":
     depot = (0, 0)
@@ -43,3 +43,21 @@ if __name__ == "__main__":
     vehicle_capacity = 5
     routes = clarke_wright_savings_with_capacity(depot, recipients, demands, vehicle_capacity)
     print("Optimized routes with capacity:", routes)
+'''
+def run_clarke_wright(locations, demands, capacity):
+    """
+    Wrapper for Flask API. 
+    locations: list of [x, y] coordinates, first one is depot, rest are recipients
+    demands: list of demands (first one for depot, should be 0)
+    capacity: vehicle capacity
+    Returns: list of routes (each route is a list of recipient indices)
+    """
+    depot = tuple(locations[0])
+    recipients = [tuple(loc) for loc in locations[1:]]
+    # demands: first is depot, rest are recipients
+    recipient_demands = demands[1:]
+    routes = clarke_wright_savings_with_capacity(depot, recipients, recipient_demands, capacity)
+    # Convert routes (which use recipient indices) to indices in the original locations list
+    # +1 because recipients start from index 1 in locations
+    routes_with_indices = [[0] + [r+1 for r in route] + [0] for route in routes]
+    return routes_with_indices

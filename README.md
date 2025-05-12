@@ -16,9 +16,8 @@ Assigns food donors to recipients in a way that maximizes total efficiency (mini
 - Uses the Hungarian Method to find the optimal matching based on a cost matrix (e.g., distance, food compatibility).
 
 **How to run/test:**  
-python algorithms/hungarian.py
-*(Make sure you have the required dependencies, such as `numpy`.)*  
-The script will output the optimal assignments for sample data.
+ Start the Flask backend (`python app.py` in the `backend` directory).  
+  Send a POST request to `/match`
 
 ---
 
@@ -30,8 +29,8 @@ Optimizes delivery routes for volunteers, minimizing total travel distance while
 Starts with each recipient as a separate route. Calculates "savings" for combining routes, and merges the best routes as long as the total food to deliver does not exceed vehicle capacity.
 
 - **How to run/test:**  
-python algorithms/clarke_wright.py
-*(Edit the sample data in the script to test with different depot/recipient locations and demands. The script will output optimized routes that respect vehicle capacity.)*
+Start the Flask backend.  
+Send a POST request to `/route`
 
 ---
 ### Priority Queue (Food Expiration Management)
@@ -42,7 +41,8 @@ Ensures food items closest to expiration are delivered first, reducing waste.
   Uses a priority queue (min-heap) where each food item’s priority is its expiration date. The soonest-to-expire food is always delivered first.
 
 - **How to run/test:**  
-python algorithms/priority_queue.py
+Start the Flask backend.  
+Send a POST request to `/next_expiring` 
 
 ---
 ### R-Tree Spatial Indexing (Geographic Queries)
@@ -53,7 +53,8 @@ Allows fast queries for nearest donors or recipients based on location.
   Uses an R-Tree (or KDTree fallback) to index locations and quickly find the nearest ones.
 
 - **How to run/test:**  
-python algorithms/r_tree.py
+Start the Flask backend.  
+Send a POST request to `/nearest` 
 ---
 
 ## How to Contribute
@@ -62,6 +63,17 @@ python algorithms/r_tree.py
 - Add your code in the `algorithms/` folder with clear comments.
 - Update this README with instructions for your algorithm.
 - Open a pull request for review.
+
+---
+## How to Run the Backend and Test the API
+
+1. Install dependencies:  
+ `pip install flask numpy scipy rtree`
+2. Go to the backend directory:  
+ `cd backend`
+3. Start the Flask server:  
+ `python app.py`
+4. Use Thunder Client (VS Code), Postman, or curl to send POST requests to the endpoints above.
 
 ---
 
